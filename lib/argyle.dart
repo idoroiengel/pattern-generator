@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class ArgylePattern extends StatefulWidget {
@@ -8,232 +6,36 @@ class ArgylePattern extends StatefulWidget {
 }
 
 class _ArgylePatternState extends State<ArgylePattern> {
+  var primaryColor = Colors.blue;
+  var firstColor = Colors.red[800];
+  var secondColor = Colors.white;
+  var tilesPerRow = 5;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: GridView.count(
-          crossAxisCount: 9,
-          children: [
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.red[800],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.red[800],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.red[800],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.red[800],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.red[800],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.orange[400],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.orange[400],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.orange[400],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.orange[400],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.red[800],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.red[800],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.red[800],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.red[800],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.red[800],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.orange[400],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.orange[400],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.orange[400],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.orange[400],
-              ),
-            ),
-            Transform.rotate(
-              angle: pi / 4,
-              child: Container(
-                color: Colors.blue,
-              ),
-            ),
-          ],
+        color: primaryColor,
+        child: GridView.builder(
+          itemCount: 40,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              color: determineTileColor(index),
+            );
+          },
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: tilesPerRow,
+          ),
         ),
       ),
     );
+  }
+
+  Color determineTileColor(int index) {
+    if (index % 2 == 0) {
+      return firstColor;
+    } else {
+      return secondColor;
+    }
   }
 }
