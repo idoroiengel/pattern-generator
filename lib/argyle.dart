@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class ArgylePattern extends StatefulWidget {
@@ -6,10 +8,11 @@ class ArgylePattern extends StatefulWidget {
 }
 
 class _ArgylePatternState extends State<ArgylePattern> {
-  var primaryColor = Colors.blue;
-  var firstColor = Colors.red[800];
-  var secondColor = Colors.white;
-  var tilesPerRow = 5;
+  var primaryColor = Colors.grey;
+  var firstColor = Colors.orange[800];
+  var secondColor = Colors.yellow[400];
+  var tilesPerRow = 4;
+  var beginRowWithFirstColor = true;
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +20,16 @@ class _ArgylePatternState extends State<ArgylePattern> {
       body: Container(
         color: primaryColor,
         child: GridView.builder(
-          itemCount: 40,
+          itemCount: 60,
           itemBuilder: (BuildContext context, int index) {
-            return Container(
-              color: determineTileColor(index),
+            return
+              // Transform.rotate(
+              // angle: pi / 4,
+              // child:
+            Container(
+                margin: EdgeInsets.all(1.0),
+                color: determineTileColor(index),
+              // ),
             );
           },
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -32,10 +41,30 @@ class _ArgylePatternState extends State<ArgylePattern> {
   }
 
   Color determineTileColor(int index) {
-    if (index % 2 == 0) {
-      return firstColor;
-    } else {
-      return secondColor;
+    if (tilesPerRow.isOdd) {
+      if (index % 2 == 0) {
+        return firstColor;
+      } else {
+        return secondColor;
+      }
+    } else if (tilesPerRow.isEven) {
+      if (index % tilesPerRow == 0) {
+        beginRowWithFirstColor = !beginRowWithFirstColor;
+      }
+      if (beginRowWithFirstColor) {
+        if (index % 2 == 0) {
+          return firstColor;
+        } else {
+          return secondColor;
+        }
+      } else {
+        if (index % 2 == 0) {
+          return secondColor;
+        } else {
+          return firstColor;
+        }
+      }
     }
+    return null;
   }
 }
