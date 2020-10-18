@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pattern_generator/argyle.dart';
+import 'package:pattern_generator/argyle/basic_argyle.dart';
 
 void main() {
   runApp(MyApp());

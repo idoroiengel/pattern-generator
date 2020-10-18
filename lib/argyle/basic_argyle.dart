@@ -11,7 +11,7 @@ class _ArgylePatternState extends State<ArgylePattern> {
   var primaryColor = Colors.grey;
   var firstColor = Colors.orange[800];
   var secondColor = Colors.yellow[400];
-  var tilesPerRow = 4;
+  var tilesPerRow = 8;
   var beginRowWithFirstColor = true;
 
   @override
@@ -20,7 +20,7 @@ class _ArgylePatternState extends State<ArgylePattern> {
       body: Container(
         color: primaryColor,
         child: GridView.builder(
-          itemCount: 60,
+          itemCount: 64,
           itemBuilder: (BuildContext context, int index) {
             return
               // Transform.rotate(
