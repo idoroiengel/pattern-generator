@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dash/flutter_dash.dart';
 
-class ArgylePatternWithStitches extends StatefulWidget {
+class CheckerboardPatternWithStitches extends StatefulWidget {
   @override
-  _ArgylePatternWithStitchesState createState() =>
-      _ArgylePatternWithStitchesState();
+  _CheckerboardPatternWithStitchesState createState() =>
+      _CheckerboardPatternWithStitchesState();
 }
 
-class _ArgylePatternWithStitchesState
-    extends State<ArgylePatternWithStitches> {
+class _CheckerboardPatternWithStitchesState
+    extends State<CheckerboardPatternWithStitches> {
   var primaryColor = Colors.grey;
   var firstColor = Colors.orange[800];
   var secondColor = Colors.yellow[400];

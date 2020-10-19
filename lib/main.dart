@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pattern_generator/argyle/argyle_with_stitch_marks.dart';
-import 'package:pattern_generator/argyle/basic_argyle.dart';
+import 'package:pattern_generator/checkerboard/checkerboard_with_stitch_marks.dart';
+import 'package:pattern_generator/checkerboard/basic_checkerboard.dart';
 
 void main() {
   runApp(MyApp());
@@ -73,6 +73,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return ArgylePatternWithStitches();
+    return CheckerboardPatternWithStitches();
   }
 }

@@ -2,16 +2,16 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class ArgylePattern extends StatefulWidget {
+class CheckerboardPattern extends StatefulWidget {
   @override
-  _ArgylePatternState createState() => _ArgylePatternState();
+  _CheckerboardPatternState createState() => _CheckerboardPatternState();
 }
 
-class _ArgylePatternState extends State<ArgylePattern> {
+class _CheckerboardPatternState extends State<CheckerboardPattern> {
   var primaryColor = Colors.grey;
   var firstColor = Colors.orange[800];
   var secondColor = Colors.yellow[400];
-  var tilesPerRow = 8;
+  var tilesPerRow = 4;
   var beginRowWithFirstColor = true;
 
   @override
@@ -19,23 +19,22 @@ class _ArgylePatternState extends State<ArgylePattern> {
     return Scaffold(
       body: Container(
         color: primaryColor,
-        child: GridView.builder(
-          itemCount: 64,
-          itemBuilder: (BuildContext context, int index) {
-            return
-              // Transform.rotate(
-              // angle: pi / 4,
-              // child:
-            Container(
-                margin: EdgeInsets.all(1.0),
-                color: determineTileColor(index),
-              // ),
-            );
-          },
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: tilesPerRow,
+          child: GridView.builder(
+            itemCount: 64,
+            itemBuilder: (BuildContext context, int index) {
+              return
+                // Transform.rotate(
+                // angle: pi / 4,
+                // child:
+              Container(
+                  color: determineTileColor(index),
+                // ),
+              );
+            },
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: tilesPerRow,
+            ),
           ),
-        ),
       ),
     );
   }
