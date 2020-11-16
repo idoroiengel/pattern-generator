@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pattern_generator/checkerboard/checkerboard_with_stitch_marks.dart';
-import 'package:pattern_generator/checkerboard/basic_checkerboard.dart';
+import 'screens/pick_pattern_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,12 +21,14 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.blue,
         // This makes the visual density adapt to the platform that you run
         // the app on. For desktop platforms, the controls will be smaller and
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      initialRoute: '/',
+
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -52,18 +53,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +62,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return CheckerboardPatternWithStitches();
+    return PickPatternScreenWidget();
   }
 }
