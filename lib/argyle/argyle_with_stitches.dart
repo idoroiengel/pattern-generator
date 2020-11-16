@@ -5,16 +5,24 @@ import 'package:flutter_dash/flutter_dash.dart';
 import 'package:matrix4_transform/matrix4_transform.dart';
 
 class ArgyleWithStitches extends StatefulWidget {
+  Color primaryColor = Colors.blue;
+  Color firstColor = Colors.orange;
+  Color secondColor = Colors.red;
+  var tilesPerRow = 3;
+
   @override
   _ArgyleWithStitchesState createState() => _ArgyleWithStitchesState();
+
+  ArgyleWithStitches({
+    this.primaryColor,
+    this.firstColor,
+    this.secondColor,
+    this.tilesPerRow,
+  });
 }
 
 class _ArgyleWithStitchesState extends State<ArgyleWithStitches> {
-  var primaryColor = Colors.blue;
-  var firstColor = Colors.orange;
-  var secondColor = Colors.red;
-  var tilesPerRow = 3;
-  var beginRowWithPrimaryColor = true;
+  var _beginRowWithPrimaryColor = true;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +74,7 @@ class _ArgyleWithStitchesState extends State<ArgyleWithStitches> {
                 );
               },
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: tilesPerRow,
+                crossAxisCount: widget.tilesPerRow,
               ),
             ),
           );
@@ -76,27 +84,27 @@ class _ArgyleWithStitchesState extends State<ArgyleWithStitches> {
   }
 
   Color determineTileColor(int index) {
-    if (tilesPerRow.isOdd) {
+    if (widget.tilesPerRow.isOdd) {
       if (index % 2 == 0) {
-        return firstColor;
+        return widget.firstColor;
       } else {
-        return secondColor;
+        return widget.secondColor;
       }
-    } else if (tilesPerRow.isEven) {
-      if (index % tilesPerRow == 0) {
-        beginRowWithPrimaryColor = !beginRowWithPrimaryColor;
+    } else if (widget.tilesPerRow.isEven) {
+      if (index % widget.tilesPerRow == 0) {
+        _beginRowWithPrimaryColor = !_beginRowWithPrimaryColor;
       }
-      if (beginRowWithPrimaryColor) {
+      if (_beginRowWithPrimaryColor) {
         if (index % 2 == 0) {
-          return primaryColor;
+          return widget.primaryColor;
         } else {
-          return secondColor;
+          return widget.secondColor;
         }
       } else {
         if (index % 2 == 0) {
-          return firstColor;
+          return widget.firstColor;
         } else {
-          return primaryColor;
+          return widget.primaryColor;
         }
       }
     }
