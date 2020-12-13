@@ -7,4 +7,4 @@ I started with a basic checkerboard pattern, which is your regular [GridView](ht
 
 The argyle patern is a bit more complicated, in terms of laying out the Rhombuses as you'd expect from an actual Argyle pattern. This is my next goal for this project.
 
-The next pattern I would like to implement is using an image or an icon and repeating it over a certain background, i.e [Polka dot](https://en.wikipedia.org/wiki/Polka_dot). This looks pretty straight forwarf on the surface of it, but I'd like to improve this basic pattern and let the user control the size of the dots, their spacing, varying number of colors for the dots etc.
+The next pattern I would like to implement is using an image or an icon and repeating it over a certain background, i.e [Polka dot](https://en.wikipedia.org/wiki/Polka_dot). This looks pretty straight forward on the surface of it, but I'd like to improve this basic pattern and let the user control the size of the dots, their spacing, varying number of colors for the dots etc.
