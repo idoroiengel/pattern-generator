@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
@@ -8,6 +7,7 @@ class ColorAndColorPickerWidget extends StatefulWidget {
       _ColorAndColorPickerWidgetState();
 
   final String label;
+
   // the color value that is updated to let user know his choice
   Color widgetSelectedColor;
 

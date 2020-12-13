@@ -3,27 +3,27 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_dash/flutter_dash.dart';
 import 'package:matrix4_transform/matrix4_transform.dart';
+import 'package:pattern_generator/components/pattern_widget.dart';
 
-class ArgyleWithStitches extends StatefulWidget {
-  Color primaryColor = Colors.blue;
-  Color firstColor = Colors.orange;
-  Color secondColor = Colors.red;
-  var tilesPerRow = 3;
-
+class ArgyleWithStitches extends PatternWidget {
   @override
   _ArgyleWithStitchesState createState() => _ArgyleWithStitchesState();
 
   ArgyleWithStitches({
-    this.primaryColor,
-    this.firstColor,
-    this.secondColor,
-    this.tilesPerRow,
-  });
+    Key key,
+    primaryColor,
+    firstColor,
+    secondColor,
+    tilesPerRow,
+  }) : super(
+          primaryColor: primaryColor,
+          firstColor: firstColor,
+          secondColor: secondColor,
+          tilesPerRow: tilesPerRow,
+        );
 }
 
-class _ArgyleWithStitchesState extends State<ArgyleWithStitches> {
-  var _beginRowWithPrimaryColor = true;
-
+class _ArgyleWithStitchesState extends PatternWidgetState {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +48,7 @@ class _ArgyleWithStitchesState extends State<ArgyleWithStitches> {
                     child: Stack(
                       children: [
                         Container(
-                          color: determineTileColor(index),
+                          color: widget.determineTileColor(index),
                         ),
                         Container(
                           alignment: Alignment.center,
@@ -81,33 +81,5 @@ class _ArgyleWithStitchesState extends State<ArgyleWithStitches> {
         },
       ),
     );
-  }
-
-  Color determineTileColor(int index) {
-    if (widget.tilesPerRow.isOdd) {
-      if (index % 2 == 0) {
-        return widget.firstColor;
-      } else {
-        return widget.secondColor;
-      }
-    } else if (widget.tilesPerRow.isEven) {
-      if (index % widget.tilesPerRow == 0) {
-        _beginRowWithPrimaryColor = !_beginRowWithPrimaryColor;
-      }
-      if (_beginRowWithPrimaryColor) {
-        if (index % 2 == 0) {
-          return widget.primaryColor;
-        } else {
-          return widget.secondColor;
-        }
-      } else {
-        if (index % 2 == 0) {
-          return widget.firstColor;
-        } else {
-          return widget.primaryColor;
-        }
-      }
-    }
-    return null;
   }
 }

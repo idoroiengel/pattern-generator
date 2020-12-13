@@ -187,12 +187,8 @@ class _PickPatternScreenWidgetState extends State<PickPatternScreenWidget> {
     return null;
   }
 
-  void showPatternScreen() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => determineDesiredPattern(),
-      ),
-    );
-  }
+  void showPatternScreen() => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => determineDesiredPattern()),
+      );
 }
